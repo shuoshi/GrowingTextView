@@ -111,7 +111,7 @@
         }
         else {
             [self.placeholderColor set];
-            [self.placeholder drawInRect:CGRectMake(8.0f, 8.0f, self.frame.size.width - 16.0f, self.frame.size.height - 16.0f) withFont:self.font];
+            [self.placeholder drawInRect:CGRectMake(8.0f, 8.0f, self.frame.size.width - 16.0f, self.frame.size.height - 16.0f) withAttributes:@{NSFontAttributeName:self.font}];
         }
     }
 }
@@ -121,6 +121,23 @@
 	_placeholder = placeholder;
 	
 	[self setNeedsDisplay];
+}
+
+- (UIResponder *)nextResponder
+{
+    if (_overrideNextResponder != nil) {
+        return _overrideNextResponder;
+    } else {
+        return [super nextResponder];
+    }
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (_overrideNextResponder != nil)
+        return NO;
+    else
+        return [super canPerformAction:action withSender:sender];
 }
 
 @end

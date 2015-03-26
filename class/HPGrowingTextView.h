@@ -26,6 +26,7 @@
 //	THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "HPTextViewInternal.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 60000
 	// UITextAlignment is deprecated in iOS 6.0+, use NSTextAlignment instead.
@@ -89,8 +90,7 @@
 @property NSTimeInterval animationDuration;
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, strong) UIColor *placeholderColor;
-@property (nonatomic, strong) UITextView *internalTextView;	
-
+@property (nonatomic, strong) HPTextViewInternal *internalTextView;
 
 //uitextview properties
 @property(unsafe_unretained) NSObject<HPGrowingTextViewDelegate> *delegate;
