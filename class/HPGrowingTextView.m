@@ -266,7 +266,7 @@
         newSizeH = maxHeight; // not taller than maxHeight
     }
     
-	if (internalTextView.frame.size.height != newSizeH)
+	if (lroundf(internalTextView.frame.size.height) != newSizeH)
 	{
         // if our new height is greater than the maxHeight
         // sets not set the height or move things
